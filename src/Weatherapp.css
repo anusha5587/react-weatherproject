@@ -1,4 +1,167 @@
-.container h2 {
+.Weatherapp h2 {
   margin: 0 auto;
   text-align: center;
+  color: blueviolet;
+}
+
+.btn-primary {
+  font-size: 15px;
+  color: whitesmoke;
+  border: 2px solid rgb(128, 0, 64);
+  background: rgb(128, 0, 64);
+  font-family: "Pacifico", cursive;
+  padding: 7px;
+  border-radius: 5px;
+  font-weight: lighter;
+}
+
+.btn-primary:hover {
+  cursor: pointer;
+  color: rgb(128, 0, 64);
+  background: white;
+  text-decoration: underline;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: black;
+  font-size: 16px;
+  font-weight: 100;
+  text-transform: capitalize;
+}
+.cityupdate {
+  text-align: left;
+  font-family: "Pacifico", cursive;
+  font-size: 20px;
+  font-weight: 200;
+  margin-right: 0;
+  line-height: 1.5;
+  padding-top: 10px;
+}
+
+#city {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  text-align: left;
+  font-family: "Pacifico", cursive;
+  color: brown;
+  font-size: 25px;
+  font-weight: 200;
+  margin-right: 0;
+  padding-top: 10px;
+}
+#description {
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+#current-location {
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+}
+
+.weather-refresh {
+  text-align: center;
+}
+
+.weather-refresh img {
+  margin-left: 0;
+  padding: 0;
+  float: left;
+}
+.weather-refresh #units {
+  position: relative;
+  font-size: 16px;
+  top: -30px;
+}
+
+.weather-refresh #units a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.weather-refresh strong {
+  color: black;
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.weather-refresh #units .active {
+  color: black;
+  cursor: default;
+}
+
+#container {
+  font-family: "Ysabeau Infant", sans-serif;
+  font-size: 6px;
+  border: black;
+  font-style: italic;
+  text-align: left;
+  line-height: 1.1;
+  padding: 10px 10px 10px 10px;
+}
+
+th,
+td {
+  font-size: 10px;
+  text-align: left;
+  padding: 2px;
+}
+
+.dailytable {
+  float: right;
+  border: black;
+  padding: 0;
+  padding-right: 50px;
+  margin: 0;
+  font-size: 20px;
+  border-collapse: separate;
+  border-spacing: 5px;
+}
+
+#days {
+  font-size: 18px;
+  font-family: "Ysabeau Infant", sans-serif;
+  font-weight: bolder;
+}
+.numbers {
+  font-size: 15px;
+  font-family: "Ysabeau Infant", sans-serif;
+  font-weight: bolder;
+  margin-right: 10px;
+}
+
+.weather-table {
+  font-family: "Ysabeau Infant", sans-serif;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.weather-table-time {
+  font-size: 15px;
+  font-family: "Ysabeau Infant", sans-serif;
+  font-weight: bolder;
+  font-style: italic;
+}
+
+.weather-table-temp {
+  font-size: 18px;
+  font-family: "Ysabeau Infant", sans-serif;
+  font-weight: bolder;
+}
+
+.weather-table-feelslike {
+  font-size: 14px;
+  font-family: "Ysabeau Infant", sans-serif;
+  font-weight: bolder;
 }

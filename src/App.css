@@ -1,6 +1,53 @@
+.App {
+  margin: auto;
+  display: block;
+  padding-top: 150px;
+  border-radius: 6px;
+}
+.container-header {
+  margin: 0 auto;
+  width: 800px;
+  height: 475px;
+  padding: 15px 20px 40px 20px;
+  border-radius: 6px;
+  background: linear-gradient(
+    180.3deg,
+    rgb(221, 221, 221) 5.5%,
+    rgb(110, 136, 161) 90.2%
+  );
+}
+
 .headingText {
+  font-family: "Pacifico", cursive;
+  font-size: 30px;
+  font-weight: lighter;
+  padding: 15px 15px 15px 15px;
   text-align: center;
 }
+
 footer {
   text-align: center;
+  margin-left: 30px;
+  font-family: "Pacifico", cursive;
+  font-size: 15px;
+  font-weight: light;
+  width: 800px;
+  margin: 0 auto;
+  background: linear-gradient(
+    180.3deg,
+    rgb(221, 221, 221) 5.5%,
+    rgb(110, 136, 161) 90.2%
+  );
+  border-radius: 6px;
+}
+
+footer a {
+  text-decoration: none;
+  color: rgb(128, 0, 64);
+  border-style: none;
+  border-color: azure;
+}
+
+#footerLink:hover {
+  text-decoration: underline;
 }
