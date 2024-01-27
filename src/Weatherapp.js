@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Weatherapp.css";
+import FormatDate from "./FormatDate.js";
 
 export default function Weatherapp(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -11,7 +12,7 @@ export default function Weatherapp(props) {
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
       city: response.data.name,
-      date: "27 Jan, Saturday 16:00",
+      date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
       feelslike: response.data.main.feels_like,
       hightemp: response.data.main.temp_max,
@@ -151,7 +152,9 @@ export default function Weatherapp(props) {
         <div className="row-col-1" id="dailyforecast">
           <h1 id="city">{weatherData.city}</h1>
           <ul className="cityupdate">
-            <li id="datetime">{weatherData.date}</li>
+            <li id="datetime">
+              <FormatDate date={weatherData.date} />
+            </li>
             <li id="description">{weatherData.description}</li>
           </ul>
         </div>
