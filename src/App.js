@@ -1,22 +1,26 @@
+import React from "react";
 import "./App.css";
-import Form from "./Weatherapp";
+import "./Weatherapp.css";
+import Weatherapp from "./Weatherapp";
 
 export default function App() {
   return (
     <div className="App">
-      <div class="container-header">
-        <h1 class="headingText">Let's check the weather!</h1>
+      <div className="container-header">
+        <h1 className="headingText">Let's check the weather!</h1>
+        <Weatherapp />
+        <br />
+        <footer>
+          This project was coded by Anoosha Anand and is open-soursed on{" "}
+          <a
+            href="https://github.com/anusha5587/react-weatherproject"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+          </a>
+        </footer>
       </div>
-      <br />
-      <footer>
-        This project was coded by Anoosha Anand and is open-soursed on{" "}
-        <a
-          href="https://github.com/anusha5587/react-weatherproject"
-          target="_blank"
-        >
-          GitHub
-        </a>
-      </footer>
     </div>
   );
 }
