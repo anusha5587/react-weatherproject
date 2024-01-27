@@ -49,5 +49,5 @@ footer a {
 }
 
 #footerLink:hover {
-  text-decoration: underline;
+  text-decoration: dashed;
 }

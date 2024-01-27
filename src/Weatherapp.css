@@ -37,6 +37,10 @@ li {
   font-weight: 100;
   text-transform: capitalize;
 }
+
+#dailyforecast {
+  padding-left: 20px;
+}
 .cityupdate {
   text-align: left;
   font-family: "Pacifico", cursive;
@@ -69,10 +73,6 @@ li {
   text-align: center;
 }
 
-.weather-refresh {
-  text-align: center;
-}
-
 .weather-refresh img {
   margin-left: 0;
   padding: 0;
@@ -89,8 +89,8 @@ li {
   font-weight: bold;
 }
 
-.weather-refresh strong {
-  color: black;
+.weather-refresh #tempNumber {
+  color: brown;
   font-size: 60px;
   font-weight: 400;
   line-height: 1;
@@ -122,7 +122,7 @@ td {
   float: right;
   border: black;
   padding: 0;
-  padding-right: 50px;
+  padding-right: 40px;
   margin: 0;
   font-size: 20px;
   border-collapse: separate;
