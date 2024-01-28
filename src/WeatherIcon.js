@@ -23,7 +23,5 @@ export default function WeatherIcon(props) {
     "50n": "fog",
   };
 
-  return (
-    <WeatherSvg state={codeMapping[props.code]} width={100} height={100} />
-  );
+  return <WeatherSvg state={codeMapping[props.code]} width={50} height={50} />;
 }

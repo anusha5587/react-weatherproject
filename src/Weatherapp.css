@@ -84,27 +84,29 @@ li {
   margin-top: 5px;
   margin-left: 10px;
 }
-#tempNumber {
+.tempNumber {
   color: brown;
   font-size: 60px;
   font-weight: 400;
   padding: 0;
   text-align: center;
 }
-#units {
+.units {
   position: relative;
   font-size: 16px;
   top: -30px;
 }
 
-#units a {
+.units a {
   text-decoration: none;
   font-weight: bold;
+  color: black;
 }
 
-#units .active {
-  color: black;
-  cursor: default;
+.units .active {
+  color: rgb(82, 15, 15);
+  font-weight: bolder;
+  text-decoration: none;
 }
 
 #container {

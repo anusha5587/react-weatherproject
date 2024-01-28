@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Weatherapp.css";
-import WeatherInfo from "./ WeatherInfo";
+import Weatherinfo from "./Weatherinfo";
 
 export default function Weatherapp(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
+
   function handleResponse(response) {
     console.log(response.data);
     setWeatherData({
@@ -169,7 +170,7 @@ export default function Weatherapp(props) {
             </table>
           </div>
         </div>
-        <WeatherInfo data={weatherData} />
+        <Weatherinfo data={weatherData} />
         <div className="weather-table">
           <div className="row">
             <div className="col-2">
