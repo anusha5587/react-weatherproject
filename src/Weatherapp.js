@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Weatherapp.css";
-import WeatherInfo from "./Weatherinfo.js";
+import WeatherInfo from "./ WeatherInfo";
 
 export default function Weatherapp(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -14,6 +14,7 @@ export default function Weatherapp(props) {
       wind: response.data.wind.speed,
       city: response.data.name,
       date: new Date(response.data.dt * 1000),
+      state: response.data.weather[0].icon,
       description: response.data.weather[0].description,
       feelslike: response.data.main.feels_like,
       hightemp: response.data.main.temp_max,
@@ -21,11 +22,6 @@ export default function Weatherapp(props) {
     });
   }
 
-  function search() {
-    const apiKey = "8944afa6845bd7c413a687258d3211ef";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
-  }
   function handleSubmit(event) {
     event.preventDefault();
     search();
@@ -33,6 +29,12 @@ export default function Weatherapp(props) {
 
   function handleCityChange(event) {
     setCity(event.target.value);
+  }
+
+  function search() {
+    const apiKey = "8944afa6845bd7c413a687258d3211ef";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
   }
 
   if (weatherData.ready) {
@@ -135,6 +137,7 @@ export default function Weatherapp(props) {
                     <img
                       src="https://openweathermap.org/img/wn/10d@2x.png"
                       width="30px"
+                      alt=""
                     />
                   </td>
                   <td className="numbers">
@@ -151,6 +154,7 @@ export default function Weatherapp(props) {
                     <img
                       src="https://openweathermap.org/img/wn/04d@2x.png"
                       width="30px"
+                      alt=""
                     />
                   </td>
                   <td className="numbers">

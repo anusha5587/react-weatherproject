@@ -1,5 +1,6 @@
 import React from "react";
-import FormatDate from "./FormatDate.js";
+import FormatDate from "./FormatDate";
+import WeatherIcon from "./WeatherIcon";
 
 export default function WeatherInfo(props) {
   return (
@@ -13,37 +14,32 @@ export default function WeatherInfo(props) {
           <li id="description">{props.data.description}</li>
         </ul>
       </div>
-      <br />
       <div className="row">
-        <div className="col-6">
-          <div className="clearfix weather-refresh">
-            <img
-              src="https://openweathermap.org/img/wn/04d@2x.png"
-              width="80"
-              alt=""
-              id="icon"
-            />
-            <div className="temperatureUpdation">
-              <strong id="tempNumber">
-                {Math.round(props.data.temperature)}
-              </strong>
-              <span id="units">
-                <a href="/" id="celsius-link" class="active">
-                  °C{" "}
-                </a>
-                <span className="unitseperator">|</span>
-                <a href="/" id="fahrenheit-link">
-                  °F
-                </a>
-              </span>
-            </div>
+        <div className="col-2">
+          <div className="weather-refresh float-left">
+            <WeatherIcon code={props.data.state} />
           </div>
         </div>
-        <div className="col-5" id="container">
+        <div className="col-3 temperatureUpdation">
+          <div>
+            <strong id="tempNumber">
+              {Math.round(props.data.temperature)}
+            </strong>
+            <span id="units">
+              <a href="/" id="celsius-link" className="active">
+                °C{" "}
+              </a>
+              <span className="unitseperator">|</span>
+              <a href="/" id="fahrenheit-link">
+                °F
+              </a>
+            </span>
+          </div>
+        </div>
+        <div className="col-4" id="container">
           <li className="feels-like">
             Feels like :{" "}
-            <span id="feelsLike">{Math.round(props.data.feelslike)}</span>
-            °C
+            <span id="feelsLike">{Math.round(props.data.feelslike)}</span> °C
           </li>
           <li className="wind-speed">
             Wind : <span id="windSpeed">{Math.round(props.data.wind)}</span> kph

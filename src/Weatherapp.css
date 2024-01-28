@@ -38,8 +38,8 @@ li {
   text-transform: capitalize;
 }
 
-.dailyforecast {
-  padding-left: 20px;
+#dailyforecast {
+  padding-left: 25px;
 }
 .cityupdate {
   text-align: left;
@@ -73,42 +73,48 @@ li {
   text-align: center;
 }
 
-.weather-refresh img {
-  margin-left: 0;
+.temperatureUpdation {
   padding: 0;
-  float: left;
 }
-.weather-refresh #units {
+.weather-refresh {
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 0;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+#tempNumber {
+  color: brown;
+  font-size: 60px;
+  font-weight: 400;
+  padding: 0;
+  text-align: center;
+}
+#units {
   position: relative;
   font-size: 16px;
   top: -30px;
 }
 
-.weather-refresh #units a {
+#units a {
   text-decoration: none;
   font-weight: bold;
 }
 
-.weather-refresh #tempNumber {
-  color: brown;
-  font-size: 60px;
-  font-weight: 400;
-  line-height: 1;
-}
-
-.weather-refresh #units .active {
+#units .active {
   color: black;
   cursor: default;
 }
 
 #container {
   font-family: "Ysabeau Infant", sans-serif;
-  font-size: 6px;
+  font-size: 4px;
   border: black;
   font-style: italic;
   text-align: left;
   line-height: 1.1;
-  padding: 10px 10px 10px 10px;
+  padding: 20px 10px 10px 10px;
 }
 
 th,
