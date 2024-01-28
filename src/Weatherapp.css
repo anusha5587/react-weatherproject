@@ -38,7 +38,7 @@ li {
   text-transform: capitalize;
 }
 
-#dailyforecast {
+.dailyforecast {
   padding-left: 20px;
 }
 .cityupdate {
