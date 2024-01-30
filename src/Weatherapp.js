@@ -11,19 +11,42 @@ export default function Weatherapp(props) {
 
   function handleResponse(response) {
     console.log(response.data);
+    console.log(response.data);
+    const offsetMinutes = response.data.timezone;
+    const adjustedDate = new Date(response.data.dt * 1000);
+
+    const offsetHours = Math.floor(Math.abs(offsetMinutes) / 60);
+    const offsetMinutesPart = Math.abs(offsetMinutes) % 60;
+    const timeZone = `${offsetMinutes >= 0 ? "+" : "-"}${offsetHours
+      .toString()
+      .padStart(2, "0")}:${offsetMinutesPart.toString().padStart(2, "0")}`;
+
     setWeatherData({
       ready: true,
       coordinates: response.data.coord,
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
       city: response.data.name,
-      date: new Date(response.data.dt * 1000),
+      date: adjustedDate,
       state: response.data.weather[0].icon,
       description: response.data.weather[0].description,
       feelslike: response.data.main.feels_like,
       hightemp: response.data.main.temp_max,
       lowtemp: response.data.main.temp_min,
+      timeZone: offsetMinutes,
     });
+  }
+
+  function calculateTimeZone(offsetMinutes) {
+    const offsetHours = Math.floor(Math.abs(offsetMinutes) / 60);
+    const offsetMinutesPart = Math.abs(offsetMinutes) % 60;
+
+    const maxOffsetHours = 12;
+    const cappedOffsetHours = Math.min(offsetHours, maxOffsetHours);
+
+    return `${offsetMinutes >= 0 ? "+" : "-"}${cappedOffsetHours
+      .toString()
+      .padStart(2, "0")}:${offsetMinutesPart.toString().padStart(2, "0")}`;
   }
 
   function handleSubmit(event) {
@@ -38,7 +61,15 @@ export default function Weatherapp(props) {
   function search() {
     const apiKey = "445905dadb3d2b0c6f1b916c9d0e3860";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
+
+    axios
+      .get(apiUrl)
+      .then((response) => {
+        handleResponse(response);
+      })
+      .catch((error) => {
+        console.error("Error fetching weather data:", error);
+      });
   }
 
   if (weatherData.ready) {
@@ -84,7 +115,10 @@ export default function Weatherapp(props) {
           <WeatherForecast coordinates={weatherData.coordinates} />
         </div>
         <Weatherinfo data={weatherData} />
-        <WeatherForecastTable coordinates={weatherData.coordinates} />
+        <WeatherForecastTable
+          coordinates={weatherData.coordinates}
+          timeZone={weatherData.timeZone}
+        />
       </div>
     );
   } else {

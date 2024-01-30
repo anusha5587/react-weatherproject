@@ -17,7 +17,7 @@ export default function WeatherForecastDay(props) {
 
     let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-    return days[day];
+    return days[date.getUTCDay()];
   }
   return (
     <div>
@@ -31,10 +31,10 @@ export default function WeatherForecastDay(props) {
           />
         </td>
         <td className="numbers">
-          <span className="dailyMinTemp">{minTemperature()}</span> °C{" "}
+          <span className="dailyMaxTemp">{maxTemperature()}</span> °C{" "}
         </td>
         <td className="numbers">
-          <span className="dailyMaxTemp">{maxTemperature()}</span> °C{" "}
+          <span className="dailyMinTemp">{minTemperature()}</span> °C{" "}
         </td>
       </tr>
     </div>
