@@ -119,34 +119,44 @@ li {
   padding: 20px 10px 10px 10px;
 }
 
-th,
-td {
-  font-size: 10px;
-  text-align: left;
-  padding: 2px;
-}
-
-.dailytable {
+.table-container {
   float: right;
-  border: black;
-  padding: 0;
-  padding-right: 40px;
-  margin: 0;
-  font-size: 20px;
-  border-collapse: separate;
-  border-spacing: 5px;
+  margin-left: auto;
+  align-items: center;
+  padding-right: 30px;
 }
 
-#days {
+.table-container table {
+  width: 100%;
+}
+
+.table-container td,
+tr {
+  flex: 1;
+  font-size: 15px;
+  text-align: center;
+  padding: 5px;
+}
+.weatherIcon {
+  padding: 5px;
+}
+
+.days {
   font-size: 18px;
+  word-spacing: 2px;
+  flex: 1;
+  width: 40px;
   font-family: "Ysabeau Infant", sans-serif;
   font-weight: bolder;
 }
 .numbers {
   font-size: 15px;
+  flex: 1;
+  width: 60px;
+  word-spacing: 1px;
   font-family: "Ysabeau Infant", sans-serif;
   font-weight: bolder;
-  margin-right: 10px;
+  text-align: center;
 }
 
 .weather-table {

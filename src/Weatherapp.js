@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Weatherapp.css";
 import Weatherinfo from "./Weatherinfo";
+import WeatherForecast from "./WeatherForecast";
+import WeatherForecastTable from "./WeatherForecastTable";
 
 export default function Weatherapp(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -11,6 +13,7 @@ export default function Weatherapp(props) {
     console.log(response.data);
     setWeatherData({
       ready: true,
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
       city: response.data.name,
@@ -33,7 +36,7 @@ export default function Weatherapp(props) {
   }
 
   function search() {
-    const apiKey = "8944afa6845bd7c413a687258d3211ef";
+    const apiKey = "445905dadb3d2b0c6f1b916c9d0e3860";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
   }
@@ -78,163 +81,10 @@ export default function Weatherapp(props) {
           </div>
         </form>
         <div id="forecastreport">
-          <div className="row-col-1">
-            <table className="dailytable">
-              <tbody>
-                <tr>
-                  <td id="days">Sat</td>
-                  <td>
-                    <img
-                      src="https://openweathermap.org/img/wn/04d@2x.png"
-                      width="30px"
-                      alt="sunny"
-                    />
-                  </td>
-                  <td className="numbers">
-                    <span className="dailyMinTemp">9</span> °C{" "}
-                  </td>
-
-                  <td className="numbers">
-                    <span className="dailyMaxTemp">9</span> °C{" "}
-                  </td>
-                </tr>
-                <tr>
-                  <td id="days">Sun</td>
-                  <td>
-                    <img
-                      src="https://openweathermap.org/img/wn/04d@2x.png"
-                      width="30px"
-                      alt=" "
-                    />
-                  </td>
-                  <td className="numbers">
-                    <span className="dailyMinTemp">10</span> °C{" "}
-                  </td>
-
-                  <td className="numbers">
-                    <span className="dailyMaxTemp">10</span> °C{" "}
-                  </td>
-                </tr>
-                <tr>
-                  <td id="days">Mon</td>
-                  <td>
-                    <img
-                      src="https://openweathermap.org/img/wn/04d@2x.png"
-                      width="30px"
-                      alt=" "
-                    />
-                  </td>
-                  <td className="numbers">
-                    <span className="dailyMinTemp">13</span> °C{" "}
-                  </td>
-
-                  <td className="numbers">
-                    <span className="dailyMaxTemp">13</span> °C{" "}
-                  </td>
-                </tr>
-                <tr>
-                  <td id="days">Tue</td>
-                  <td>
-                    <img
-                      src="https://openweathermap.org/img/wn/10d@2x.png"
-                      width="30px"
-                      alt=""
-                    />
-                  </td>
-                  <td className="numbers">
-                    <span className="dailyMinTemp">12</span> °C{" "}
-                  </td>
-
-                  <td className="numbers">
-                    <span className="dailyMaxTemp">12</span> °C{" "}
-                  </td>
-                </tr>
-                <tr>
-                  <td id="days">Wed</td>
-                  <td>
-                    <img
-                      src="https://openweathermap.org/img/wn/04d@2x.png"
-                      width="30px"
-                      alt=""
-                    />
-                  </td>
-                  <td className="numbers">
-                    <span className="dailyMinTemp">8</span> °C{" "}
-                  </td>
-
-                  <td className="numbers">
-                    <span className="dailyMaxTemp">8</span> °C{" "}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <WeatherForecast coordinates={weatherData.coordinates} />
         </div>
         <Weatherinfo data={weatherData} />
-        <div className="weather-table">
-          <div className="row">
-            <div className="col-2">
-              <div className="weather-table-time">18:00</div>
-              <img
-                src="https://openweathermap.org/img/wn/02n@2x.png"
-                width="30px"
-                alt=""
-              />
-              <div className="weather-table-temp">5°C</div>
-              <div className="weather-table-feelslike">Feels like 2°C</div>
-            </div>
-            <div className="col-2">
-              <div className="weather-table-time">19:00</div>
-              <img
-                src="https://openweathermap.org/img/wn/01n@2x.png"
-                width="30px"
-                alt=""
-              />
-              <div className="weather-table-temp">5°C</div>
-              <div className="weather-table-feelslike">Feels like 2°C</div>
-            </div>
-            <div className="col-2">
-              <div className="weather-table-time">20:00</div>
-              <img
-                src="https://openweathermap.org/img/wn/02n@2x.png"
-                width="30px"
-                alt=""
-              />
-              <div className="weather-table-temp">5°C</div>
-              <div className="weather-table-feelslike">Feels like 2°C</div>
-            </div>
-            <div className="col-2">
-              <div className="weather-table-time">21:00</div>
-              <img
-                src="https://openweathermap.org/img/wn/03n@2x.png"
-                width="30px"
-                alt=""
-              />
-              <div className="weather-table-temp">5°C</div>
-              <div className="weather-table-feelslike">Feels like 2°C</div>
-            </div>
-            <div className="col-2">
-              <div className="weather-table-time">22:00</div>
-              <img
-                src="https://openweathermap.org/img/wn/04n@2x.png"
-                width="30px"
-                alt=""
-              />
-              <div className="weather-table-temp">5°C</div>
-              <div className="weather-table-feelslike">Feels like 2°C</div>
-            </div>
-            <div className="col-2">
-              <div className="weather-table-time">23:00</div>
-              <img
-                src="https://openweathermap.org/img/wn/04n@2x.png"
-                width="30px"
-                alt=""
-              />
-              <div className="weather-table-temp">5°C</div>
-              <div className="weather-table-feelslike">Feels like 2°C</div>
-            </div>
-          </div>
-        </div>
+        <WeatherForecastTable coordinates={weatherData.coordinates} />
       </div>
     );
   } else {
