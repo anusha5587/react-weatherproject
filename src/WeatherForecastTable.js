@@ -32,7 +32,7 @@ export default function WeatherForecastTable(props) {
       <div className="weather-table">
         <div className="row">
           {forecastData.slice(0, 6).map((hourlyForecast, index) => (
-            <div className="col-2" key={index}>
+            <div className="col-2 hourlyUpdate" key={index}>
               <WeatherHourlyForecast
                 data={hourlyForecast}
                 hourOffset={hourOffset}

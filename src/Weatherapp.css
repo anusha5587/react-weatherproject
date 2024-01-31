@@ -1,9 +1,3 @@
-.Weatherapp h2 {
-  margin: 0 auto;
-  text-align: center;
-  color: blueviolet;
-}
-
 .btn-primary {
   font-size: 15px;
   color: whitesmoke;
@@ -124,6 +118,9 @@ li {
   margin-left: auto;
   align-items: center;
   padding-right: 30px;
+  background-color: #acafc8;
+  border-radius: 30px;
+  color: #ffffff;
 }
 
 .table-container table {
@@ -165,6 +162,12 @@ tr {
   text-align: center;
 }
 
+.hourlyUpdate {
+  padding: 5px;
+  background-color: #acafc8;
+  border-radius: 30px;
+  color: #ffffff;
+}
 .weather-table-time {
   font-size: 15px;
   font-family: "Ysabeau Infant", sans-serif;

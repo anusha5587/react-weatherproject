@@ -1,8 +1,7 @@
 .App {
-  margin: auto;
+  margin: 0 auto;
   display: block;
   padding-top: 150px;
-  border-radius: 6px;
 }
 .container-header {
   margin: 0 auto;
@@ -10,11 +9,7 @@
   height: 475px;
   padding: 15px 20px 40px 20px;
   border-radius: 6px;
-  background: linear-gradient(
-    180.3deg,
-    rgb(221, 221, 221) 5.5%,
-    rgb(110, 136, 161) 90.2%
-  );
+  background: linear-gradient(-225deg, #cbbacc 0%, #2580b3 100%);
 }
 
 .headingText {
