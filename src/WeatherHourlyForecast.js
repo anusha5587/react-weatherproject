@@ -2,10 +2,10 @@ import React from "react";
 import WeatherIcon from "./WeatherIcon";
 
 export default function WeatherHourlyForecast(props) {
-  const apiTimestamp = props.data.dt;
-  const timeZoneOffset = props.data.timezone_offset || 0; // Default to 0 if offset is not available
-  const forecastDate = new Date((apiTimestamp + timeZoneOffset) * 1000);
-  const forecastTime = forecastDate.getUTCHours();
+  let apiTimestamp = props.data.dt;
+  let timeZoneOffset = props.data.timezone_offset || 0;
+  let forecastDate = new Date((apiTimestamp + timeZoneOffset) * 1000);
+  let forecastTime = forecastDate.getUTCHours();
 
   function hourlyTemperature() {
     return Math.round(props.data.temp);

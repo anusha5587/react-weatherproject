@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import "./Weatherapp.css";
+import "./Images/sunset.jpg";
 import Weatherapp from "./Weatherapp";
 
 export default function App() {

@@ -4,8 +4,6 @@ import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
 
 export default function Weatherinfo(props) {
-  console.log("Date:", props.data.date);
-  console.log("Time Zone:", props.data.timeZone);
   return (
     <div className="weatherInfo">
       <div className="row-col-1" id="dailyforecast">

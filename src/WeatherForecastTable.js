@@ -3,9 +3,9 @@ import axios from "axios";
 import WeatherHourlyForecast from "./WeatherHourlyForecast";
 
 export default function WeatherForecastTable(props) {
-  const [forecastReady, setForecastReady] = useState(false);
-  const [forecastData, setForecastData] = useState(null);
-  const [hourOffset, setHourOffset] = useState(0);
+  let [forecastReady, setForecastReady] = useState(false);
+  let [forecastData, setForecastData] = useState(null);
+  let [hourOffset, setHourOffset] = useState(0);
 
   useEffect(() => {
     setForecastReady(false);
@@ -13,10 +13,10 @@ export default function WeatherForecastTable(props) {
   }, [props.coordinates]);
 
   function fetchHourlyData() {
-    const apiKey = "445905dadb3d2b0c6f1b916c9d0e3860";
-    const longitude = props.coordinates.lon;
-    const latitude = props.coordinates.lat;
-    const apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+    let apiKey = "445905dadb3d2b0c6f1b916c9d0e3860";
+    let longitude = props.coordinates.lon;
+    let latitude = props.coordinates.lat;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
     axios.get(apiUrl).then(handleHourlyResponse);
   }
@@ -24,7 +24,7 @@ export default function WeatherForecastTable(props) {
   function handleHourlyResponse(response) {
     setForecastData(response.data.hourly);
     setForecastReady(true);
-    setHourOffset(response.data.timezone_offset / 3600); // Convert seconds to hours
+    setHourOffset(response.data.timezone_offset / 3600);
   }
 
   if (forecastReady) {

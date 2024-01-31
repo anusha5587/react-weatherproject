@@ -4,20 +4,19 @@ import "./Weatherapp.css";
 import Weatherinfo from "./Weatherinfo";
 import WeatherForecast from "./WeatherForecast";
 import WeatherForecastTable from "./WeatherForecastTable";
+import CurrentLocationButton from "./CurrentLocationButton";
 
 export default function Weatherapp(props) {
-  const [weatherData, setWeatherData] = useState({ ready: false });
-  const [city, setCity] = useState(props.defaultCity);
+  let [weatherData, setWeatherData] = useState({ ready: false });
+  let [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response) {
-    console.log(response.data);
-    console.log(response.data);
-    const offsetMinutes = response.data.timezone;
-    const adjustedDate = new Date(response.data.dt * 1000);
+    let offsetMinutes = response.data.timezone;
+    let adjustedDate = new Date(response.data.dt * 1000);
 
-    const offsetHours = Math.floor(Math.abs(offsetMinutes) / 60);
-    const offsetMinutesPart = Math.abs(offsetMinutes) % 60;
-    const timeZone = `${offsetMinutes >= 0 ? "+" : "-"}${offsetHours
+    let offsetHours = Math.floor(Math.abs(offsetMinutes) / 60);
+    let offsetMinutesPart = Math.abs(offsetMinutes) % 60;
+    let timeZone = `${offsetMinutes >= 0 ? "+" : "-"}${offsetHours
       .toString()
       .padStart(2, "0")}:${offsetMinutesPart.toString().padStart(2, "0")}`;
 
@@ -37,21 +36,10 @@ export default function Weatherapp(props) {
     });
   }
 
-  function calculateTimeZone(offsetMinutes) {
-    const offsetHours = Math.floor(Math.abs(offsetMinutes) / 60);
-    const offsetMinutesPart = Math.abs(offsetMinutes) % 60;
-
-    const maxOffsetHours = 12;
-    const cappedOffsetHours = Math.min(offsetHours, maxOffsetHours);
-
-    return `${offsetMinutes >= 0 ? "+" : "-"}${cappedOffsetHours
-      .toString()
-      .padStart(2, "0")}:${offsetMinutesPart.toString().padStart(2, "0")}`;
-  }
-
   function handleSubmit(event) {
     event.preventDefault();
     search();
+    setCity("");
   }
 
   function handleCityChange(event) {
@@ -59,7 +47,7 @@ export default function Weatherapp(props) {
   }
 
   function search() {
-    const apiKey = "445905dadb3d2b0c6f1b916c9d0e3860";
+    let apiKey = "445905dadb3d2b0c6f1b916c9d0e3860";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
     axios
@@ -71,6 +59,32 @@ export default function Weatherapp(props) {
         console.error("Error fetching weather data:", error);
       });
   }
+
+  let handleCurrentLocationClick = () => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        fetchWeatherDataByCoordinates(latitude, longitude);
+      },
+      (error) => {
+        console.error("Error fetching current location:", error);
+      }
+    );
+  };
+
+  let fetchWeatherDataByCoordinates = (latitude, longitude) => {
+    let apiKey = "445905dadb3d2b0c6f1b916c9d0e3860";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+
+    axios
+      .get(apiUrl)
+      .then((response) => {
+        handleResponse(response);
+      })
+      .catch((error) => {
+        console.error("Error fetching weather data:", error);
+      });
+  };
 
   if (weatherData.ready) {
     return (
@@ -87,6 +101,7 @@ export default function Weatherapp(props) {
                 aria-describedby="addon-wrapping"
                 autocomplete="off"
                 autofocus="on"
+                value={city}
                 onChange={handleCityChange}
               />
             </div>
@@ -99,15 +114,7 @@ export default function Weatherapp(props) {
                 style={{ border: "none" }}
                 id="search-icon"
               />
-              <span id="current-location">
-                <input
-                  type="button"
-                  value="Current Location"
-                  className="btn btn-primary"
-                  style={{ border: "none", float: "right" }}
-                  id="current-location-btn"
-                />
-              </span>
+              <CurrentLocationButton onClick={handleCurrentLocationClick} />
             </div>
           </div>
         </form>
