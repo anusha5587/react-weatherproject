@@ -1,19 +1,21 @@
 .btn-primary {
   font-size: 15px;
   color: whitesmoke;
-  border: 2px solid rgb(128, 0, 64);
-  background: rgb(128, 0, 64);
+  border: 2px solid #4d2110;
+  background: #4d2110;
   font-family: "Pacifico", cursive;
   padding: 7px;
   border-radius: 5px;
   font-weight: lighter;
+  letter-spacing: 1.5;
 }
 
 .btn-primary:hover {
   cursor: pointer;
-  color: rgb(128, 0, 64);
+  color: #4d2110;
   background: white;
   text-decoration: underline;
+  letter-spacing: 1.5;
 }
 
 ul {
@@ -26,7 +28,7 @@ li {
   list-style: none;
   margin: 0;
   padding: 0;
-  color: black;
+  color: #030305;
   font-size: 16px;
   font-weight: 100;
   text-transform: capitalize;
@@ -50,8 +52,8 @@ li {
   margin-bottom: 0;
   text-align: left;
   font-family: "Pacifico", cursive;
-  color: brown;
-  font-size: 25px;
+  color: #030305;
+  font-size: 35px;
   font-weight: 200;
   margin-right: 0;
   padding-top: 10px;
@@ -70,6 +72,16 @@ li {
 .temperatureUpdation {
   padding: 0;
 }
+
+.weather-details-list {
+  padding-top: 0;
+  font-family: "Pacifico", cursive;
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: left;
+  padding: 12px 10px 10px 10px;
+}
+
 .weather-refresh {
   margin: 0 auto;
   padding-top: 20px;
@@ -79,7 +91,7 @@ li {
   margin-left: 10px;
 }
 .tempNumber {
-  color: brown;
+  color: #030305;
   font-size: 60px;
   font-weight: 400;
   padding: 0;
@@ -89,28 +101,19 @@ li {
   position: relative;
   font-size: 16px;
   top: -30px;
+  font-weight: 700;
 }
 
 .units a {
   text-decoration: none;
   font-weight: bold;
-  color: black;
+  color: #030305;
 }
 
 .units .active {
-  color: rgb(82, 15, 15);
-  font-weight: bolder;
+  color: #ffffff;
+  font-weight: bold;
   text-decoration: none;
-}
-
-#container {
-  font-family: "Ysabeau Infant", sans-serif;
-  font-size: 4px;
-  border: black;
-  font-style: italic;
-  text-align: left;
-  line-height: 1.1;
-  padding: 20px 10px 10px 10px;
 }
 
 .table-container {
@@ -118,8 +121,6 @@ li {
   margin-left: auto;
   align-items: center;
   padding-right: 30px;
-  background-color: #acafc8;
-  border-radius: 30px;
   color: #ffffff;
 }
 
@@ -164,7 +165,7 @@ tr {
 
 .hourlyUpdate {
   padding: 5px;
-  background-color: #acafc8;
+  background-color: #a65b3a;
   border-radius: 30px;
   color: #ffffff;
 }

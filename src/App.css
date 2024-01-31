@@ -8,14 +8,19 @@
   width: 800px;
   height: 475px;
   padding: 15px 20px 40px 20px;
-  border-radius: 6px;
-  background: linear-gradient(-225deg, #cbbacc 0%, #2580b3 100%);
+  border-radius: 30px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 153, 102, 0.5),
+    rgba(255, 94, 98, 0.5)
+  );
 }
 
 .headingText {
   font-family: "Pacifico", cursive;
   font-size: 30px;
   font-weight: lighter;
+  color: #030305;
   padding: 15px 15px 15px 15px;
   text-align: center;
 }
@@ -26,14 +31,14 @@ footer {
   font-family: "Pacifico", cursive;
   font-size: 15px;
   font-weight: light;
+  color: whitesmoke;
   width: 800px;
   margin: 0 auto;
   background: linear-gradient(
-    180.3deg,
-    rgb(221, 221, 221) 5.5%,
-    rgb(110, 136, 161) 90.2%
+    -225deg,
+    rgba(203, 186, 204, 0.5) 10%,
+    rgba(37, 128, 179, 0.5) 100%
   );
-  border-radius: 6px;
 }
 
 footer a {
