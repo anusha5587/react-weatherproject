@@ -24,7 +24,7 @@ export default function Weatherinfo(props) {
         <div className="col-3 temperatureUpdation">
           <WeatherTemperature celsius={props.data.temperature} />
         </div>
-        <div className="col-4" id="container">
+        <div className="col-5" id="container">
           <ul className="weather-details-list">
             <li className="feels-like">
               Feels like :{" "}
